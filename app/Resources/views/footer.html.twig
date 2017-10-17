@@ -1,0 +1,43 @@
+<footer class="navbar navbar-default" id="footer">
+	<div class="col-xs-12 col-sm-push-7 col-sm-5" id="footer_right-links">
+		<a href="{{ path('core_home') }}" title="{{ 'core.footer.right_links.legal.title'|trans }}">
+	      	{{ 'core.footer.right_links.legal.link'|trans }}
+	    </a>
+	    -
+	    <a href="{{ path('core_home') }}" title="{{ 'core.footer.right_links.status.title'|trans }}">
+	      	{{ 'core.footer.right_links.status.link'|trans }}
+	    </a>
+	    -
+	    <a href="{{ path('core_home') }}" title="{{ 'core.footer.right_links.agency.title'|trans }}">
+	      	{{ 'core.footer.right_links.agency.link'|trans }}
+	    </a>
+	</div>
+
+	<div class="hidden-xs col-sm-2" id="footer_logo">
+		<a href="{{ path('core_home') }}" title="{{ 'core.site.logo'|trans }}">
+			{% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+	        	<img src="{{ asset_url }}" alt="{{ 'core.site.logo'|trans }}" />
+	        {% endimage %}
+        </a>
+	</div>
+
+	<div class="col-xs-12 col-sm-pull-7 col-sm-5">
+		<div class="hidden-xs col-sm-12" id="footer_left-links">
+			<a href="{{ path('core_home') }}" title="{{ 'core.footer.left_links.search.title'|trans }}">
+		      	{{ 'core.footer.left_links.search.link'|trans|upper }}
+		    </a>
+		    <br />
+		    <a href="{{ path('core_home') }}" title="{{ 'core.footer.left_links.observations.title'|trans }}">
+		      	{{ 'core.footer.left_links.observations.link'|trans|upper }}
+		    </a>
+		    <br />
+		    <a href="{{ path('core_home') }}" title="{{ 'core.footer.left_links.project.title'|trans }}">
+		      	{{ 'core.footer.left_links.project.link'|trans|upper }}
+		    </a>
+		</div>
+
+		<div class="col-xs-12" id="footer_copyright">
+			{{ 'core.footer.copyright'|trans }}
+		</div>
+	</div>
+</footer>

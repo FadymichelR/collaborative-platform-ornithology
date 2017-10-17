@@ -1,0 +1,131 @@
+{% extends 'layout.html.twig' %}
+{% set homepage = true %}
+{% block stylesheets %}
+	{{ parent() }}
+    {% stylesheets filter='cssrewrite, ?scssphp'
+        'bundles/app/css/contact.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+{% block body  %}
+<div class="col-xs-12 nao_title">
+	<div class="col-xs-10 col-sm-6">
+		<h1>CONTACTEZ-NOUS</h1>
+	</div>
+
+	<div class="hidden-xs col-sm-2 nao_title-icon">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/contact.png' %}
+			<img src="{{ asset_url }}" alt="" />
+		{% endimage %}
+	</div>
+</div>
+<div class="col-xs-12" id="containerformContact">
+			{% for message in app.session.flashbag.get('contact-notice') %}
+				<div class="alert alert-success">
+				  <p><strong>MERCI !</strong><br /> {{ message }}</p>
+				</div>
+			{% endfor %}
+		{{ form_start(form, {'attr': {'id': 'contact-form', 'class': 'form-horizontal'}}) }}
+
+		<div class="form-group">
+	      <div class="col-sm-4">{{ form_label(form.name) }}*</div>
+	      <div class="col-sm-8">
+	        {{ form_widget(form.name) }}
+	        {{ form_errors(form.name) }}
+	      </div>
+	    </div>
+		<div class="form-group">
+	      <div class="col-sm-4">{{ form_label(form.email) }}*</div>
+	      <div class="col-sm-8">
+	        {{ form_widget(form.email) }}
+	        {{ form_errors(form.email) }}
+	      </div>
+	    </div>
+		<div class="form-group">
+	      <div class="col-sm-4">{{ form_label(form.subject) }}*</div>
+	      <div class="col-sm-8">
+	        {{ form_widget(form.subject) }}
+	        {{ form_errors(form.subject) }}
+	      </div>
+	    </div>
+		<div class="form-group">
+	      <div class="col-sm-4">
+	      	{{ form_label(form.message) }}*
+			 {% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+	            <img id="pelican" class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/pelican.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+	         {% endimage %}
+	      </div>
+	      <div class="col-sm-8">
+	        {{ form_widget(form.message) }}
+	        {{ form_errors(form.message) }}
+	      </div>
+	    </div>
+
+			<div id="save">
+				{{ form_row(form.save) }}
+			</div>
+		{{ form_end(form) }}
+</div>
+<div class="col-xs-12" id="blocAdress">
+			<div id="adress">
+				<p>ASSOCIATION NOS AMIS LES OISEAUX</p>
+				<p>156 BOULEVARD BONNE NOUVELLE</p>
+				<p>75 010 PARIS CEDEX</p>
+			</div>
+		<div class="row">
+			<div id="locIcon" class="col-sm-4">
+				{% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+				<img class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/blue-loc-icon.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+				{% endimage %}
+	        </div>
+	        <div id="phoneNumber" class="col-sm-4">
+	        	<p>01.78.35.90.56</p>
+	        </div>
+	        <div id="email" class="col-sm-4">
+	        	<p>nosalisoiseaux@gmail.fr</p>
+	        </div>
+        </div>
+        <div id="separatorLine">
+			{% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+			<img class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/separator-line.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+			{% endimage %}
+        </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts filter='?jsqueeze'
+        'bundles/app/js/parsley.min.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script>
+$('#contact-form').parsley();
+
+    $('#contact-form').on('submit', function(e) {
+    	e.preventDefault();
+    	$('#contact_save').button('loading');
+    	var $this = $(this); 
+	   if ($('#contact-form').parsley().isValid()) {
+	   		$('#contact_save').button('loading');
+            $.ajax({
+                url: '{{ path('app_contact') }}', 
+                type: $this.attr('method'), 
+                data: $this.serialize(),
+                success: function(data) { 
+                    if (data.status == 'success') {
+                    	$('#containerformContact').hide().empty();
+	     	    		$('#containerformContact').prepend('<div id="textThanks"><p>Merci!</p><p>Votre message vient d\'être envoyé, nous vous répondrons dans les plus brefs délais.</p></div>').fadeIn("slow");
+                    }
+                    else {
+                    	$('#contact_save').button("reset");
+                    }
+                },
+                error: function () { 
+                	$('#contact_save').button("reset");
+                },
+            });
+	    }
+	});
+	</script>
+	{% endjavascripts %}
+{% endblock %}

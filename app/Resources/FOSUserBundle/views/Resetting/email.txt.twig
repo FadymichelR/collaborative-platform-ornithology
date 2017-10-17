@@ -1,0 +1,14 @@
+{% block subject %}
+	{%- autoescape false -%}
+		{{ 'core.reset_pass.email.subject'|trans({'%username%': user.firstName}) }}
+	{%- endautoescape -%}
+{% endblock %}
+
+{% block body_text %}
+{% endblock %}
+
+{% block body_html %}
+	{% autoescape false %}
+		<em>{{ 'core.reset_pass.email.message'|trans({'%username%': user.firstName, '%confirmationUrl%': confirmationUrl}) }}</em>
+	{% endautoescape %}
+{% endblock %}

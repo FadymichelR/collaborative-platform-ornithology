@@ -1,0 +1,57 @@
+<a href="{{ path('app_observation') }}" title="{{ 'core.second-menu.observation'|trans }}">
+	<div class="col-sm-12">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/observation.png' %}
+			<img src="{{ asset_url }}" alt="{{ 'core.second-menu.observation'|trans }}" />
+		{% endimage %}
+	</div>
+</a>
+
+<a href="{{ path('find') }}" title="{{ 'core.second-menu.search'|trans }}">
+	<div class="col-sm-12">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/search.png' %}
+    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.search'|trans }}" />
+    	{% endimage %}
+	</div>
+</a>
+
+<a href="{{ path('app_contact') }}" title="{{ 'core.second-menu.contact'|trans }}">
+	<div class="col-sm-12">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/contact.png' %}
+    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.contact'|trans }}" />
+    	{% endimage %}
+	</div>
+</a>
+
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+	<a href="{{ path('fos_user_profile_show') }}" title="{{ 'core.second-menu.profile'|trans }}">
+		<div class="col-sm-12">
+			{% image 'http://assets.fhuszti.tech/nao/second-menu/profile.png' %}
+	    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.profile'|trans }}" />
+	    	{% endimage %}
+		</div>
+	</a>
+
+	<a href="{{ path('fos_user_security_logout') }}" title="{{ 'core.second-menu.logout'|trans }}">
+		<div class="col-sm-12">
+			{% image 'http://assets.fhuszti.tech/nao/second-menu/logout.png' %}
+	    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.logout'|trans }}" />
+	    	{% endimage %}
+		</div>
+	</a>
+{% else %}
+	<a href="{{ path('fos_user_registration_register') }}" title="{{ 'core.second-menu.register'|trans }}">
+		<div class="col-sm-12">
+			{% image 'http://assets.fhuszti.tech/nao/second-menu/register.png' %}
+	    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.register'|trans }}" />
+	    	{% endimage %}
+		</div>
+	</a>
+
+	<a href="{{ path('fos_user_security_login') }}" title="{{ 'core.second-menu.login'|trans }}">
+		<div class="col-sm-12">
+			{% image 'http://assets.fhuszti.tech/nao/second-menu/login.png' %}
+	    		<img src="{{ asset_url }}" alt="{{ 'core.second-menu.login'|trans }}" />
+	    	{% endimage %}
+		</div>
+	</a>
+{% endif %}

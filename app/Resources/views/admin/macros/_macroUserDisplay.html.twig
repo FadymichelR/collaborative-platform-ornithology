@@ -1,0 +1,17 @@
+{% macro user_display(user) %}
+	<div class="col-xs-12 user-row">
+    	<div class="col-xxs-12 col-xs-8" id="user_name-row">
+            {{ user.firstName|capitalize }} {{ user.surname|capitalize }}
+   		</div>
+
+   		<div class="col-xxs-12 col-xs-4 user_button-row">
+   			<button class="btn btn-warning btn-sm" href="#admin_user-edit-modal" data-toggle="modal" data-id="{{ user.id }}" title="Modifier les informations de l'utilisateur" id="#user_edit-btn-{{ user.id }}">
+                <span class="glyphicon glyphicon-pencil" data-id="{{ user.id }}"></span>
+            </button>
+
+            <button class="btn btn-danger btn-sm" href="#admin_user-delete-modal" data-toggle="modal" data-id="{{ user.id }}" title="Supprimer l'utilisateur" id="#user_delete-btn-{{ user.id }}">
+                <span class="glyphicon glyphicon-remove" data-id="{{ user.id }}"></span>
+            </button>
+   		</div>
+	</div>
+{% endmacro %}

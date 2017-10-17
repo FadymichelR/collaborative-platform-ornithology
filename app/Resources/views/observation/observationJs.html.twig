@@ -1,0 +1,15 @@
+  <script src="{{asset('bundles/app/js/Observation/autocomplete.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/datepicker.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/previewImage.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/geolocation.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/marker.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/map.js') }}"></script>
+  <script src="{{asset('bundles/app/js/Observation/geocoding.js') }}"></script>
+  <script> 
+  var pathControllerObservation = '{{ path('app_observation') }}';
+  var pathControllerSearch = '{{ path('search') }}';
+  </script>
+  <script src="{{asset('bundles/app/js/Observation/ajax.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClMpsB5o4zV5aVVxdivP39F_QuXZ5RSEM&libraries=places&callback=initAutocomplete"
+         async defer>
+  </script>

@@ -1,0 +1,19 @@
+<div class="col-xs-12 profile-block-header">
+	{{ 'core.profile.block3.header'|trans|upper }}
+</div>
+<div class="col-xs-12 profile-block-content" id="profile_block3-content">
+	<ul class="gallery">
+		{% for image in user.images|reverse if image.observation.status %}
+			<li>
+				<img src="{{ image.url }}" alt="{{ image.bird.commonName }}" />
+				<p class="text">
+					{{ image.bird.commonName }} - {{ image.observation.date|date("d/m/Y") }} - {{ image.observation.country }}
+				</p>
+			</li>
+		{% else %}
+			<div class="col-xs-12">
+				{{ 'core.profile.block2.content.empty.image.sentence'|trans }} <a href="{{ path('core_home') }}" title="{{ 'core.profile.block2.content.empty.image.link.title'|trans }}">{{ 'core.profile.block2.content.empty.image.link.value'|trans }}</a>
+			</div>
+		{% endfor %}
+	</ul>
+</div>

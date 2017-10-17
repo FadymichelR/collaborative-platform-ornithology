@@ -1,0 +1,126 @@
+
+{% extends 'layout.html.twig' %}
+{% set homepage = true %}
+{% block stylesheets %}
+{{ parent() }}
+{% stylesheets filter='cssrewrite, ?scssphp'
+	'//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'
+    'bundles/app/css/contact.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+{% endstylesheets %}
+{% endblock %}
+{% block body  %}
+
+<div class="container" id="f">
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-1 col-sm-8" id="containerformContact">
+			{{ form_start(form) }}
+			{{ form_errors(form) }}
+			<div class="row field">
+				<div class="col-xs-12 col-col-sm-offset-1 col-sm-4">
+					{{ form_label(form.name) }}
+				</div>
+				<div class="col-xs-12 col-sm-offset-1 col-sm-4">
+					{{ form_widget(form.name) }}
+				</div>
+			</div>
+			<div class="row field">
+				<div class="col-xs-12 col-col-sm-offset-1 col-sm-4">
+					{{ form_label(form.email) }}
+				</div>
+				<div class="col-xs-12 col-sm-offset-1 col-sm-4">
+					{{ form_widget(form.email) }}
+				</div>
+			</div>
+			<div class="row field">
+				<div class="col-xs-12 col-col-sm-offset-1 col-sm-4">
+					{{ form_label(form.subject) }}
+				</div>
+				<div class="col-xs-12 col-sm-offset-1 col-sm-4">
+					{{ form_widget(form.subject) }}
+				</div>
+			</div>
+			<div class="row field">
+				<div class="col-xs-12 col-col-sm-offset-1 col-sm-4">
+					{{ form_label(form.message) }}
+				 {% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+                <img id="pelican" class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/pelican.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+              {% endimage %}
+				</div>
+				<div class="col-xs-12 col-sm-offset-1 col-sm-4">
+					{{ form_widget(form.message) }}
+				</div>
+			</div>
+			<div id="save">
+				{{ form_row(form.save) }}
+			</div>
+			{{ form_rest(form) }}
+			{{ form_end(form) }}
+		</div>
+		<div class="col-xs-12 col-sm-offset-1 col-sm-8" id="thanks">
+			<div class="col-sm-offset-1 col-sm-10" id="textThanks">
+				<p>MERCI!!</p>
+				<p>Votre message vient d'être envoyé, nous vous répondrons dans les plus brefs délais.</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-1 col-sm-8" id="blocAdress">
+			<div id="adress">
+				<p>ASSOCIATION NOS AMIS LES OISEAUX<p>
+				<p>156 BOULEVARD BONNE NOUVELLE<p>
+				<p>75 010 PARIS CEDEX<p>
+			</div>
+		<div class="row">
+			<div id="locIcon" class="col-sm-4">
+				{% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+				<img class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/blue-loc-icon.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+				{% endimage %}
+	        </div>
+	        <div id="phoneNumber" class="col-sm-4">
+	        	<p>01.78.35.90.56</p>
+	        </div>
+	        <div id="email" class="col-sm-4">
+	        	<p>nosalisoiseaux@gmail.fr</p>
+	        </div>
+        </div>
+        <div id="separatorLine">
+			{% image 'http://assets.fhuszti.tech/nao/logo.png' %}
+			<img class="img-responsive" src="{{ 'http://assets.fhuszti.tech/nao/separator-line.png' }}" alt="{{'core.logo.alt'|trans}}" class="hidden-xs" />
+			{% endimage %}
+        </div>
+        </div>
+	</div>
+</div>
+
+{% block script %}
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("form").on("submit",function(e) {
+      e.preventDefault();
+      var form = $(this);
+      var values = {};
+      $.each( form.serializeArray(), function(i, field) { 
+       values[field.name] = field.value;   
+     });
+
+        $.ajax({
+          url : '{{ path('app_contact') }}',
+          type : 'POST', 
+          data : values,
+          success :function(e) {
+           $('#containerformContact').animate({ height: '0px' }, 1000, function() {
+                $(this).hide(0, function() {
+                $('#thanks').animate({ height: '400px' }, 1000);
+                });
+             });
+          }
+        });
+      });
+    </script> 
+    <script> var pathControllerContact = '{{ path('app_contact') }}';</script>
+    <script src="{{asset('bundles/app/js/Contact/formValidation.js') }}"></script>
+    <script src="{{asset('bundles/app/js/Contact/ajax.js') }}"></script>
+{% endblock %}
+{% endblock %}

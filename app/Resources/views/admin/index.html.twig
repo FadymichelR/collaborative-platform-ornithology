@@ -1,0 +1,68 @@
+{% extends 'layout.html.twig' %}
+{% set adminPage = true %}
+
+{% import "admin/macros/_macroObservationDisplay.html.twig" as macroObservationDisplay %}
+{% import "admin/macros/_macroUserDisplay.html.twig" as macroUserDisplay %}
+{% import "admin/macros/_macroObservationModal.html.twig" as macroObservationModal %}
+{% import "admin/macros/_macroUserEditModal.html.twig" as macroUserEditModal %}
+{% import "admin/macros/_macroUserDeleteModal.html.twig" as macroUserDeleteModal %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite, ?scssphp'
+        'bundles/app/css/admin.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+	<div class="col-xs-12 nao_title">
+		<div class="col-xs-10 col-sm-6">
+			<h1>{{ 'core.admin.title'|trans|upper }}</h1>
+		</div>
+
+		<div class="hidden-xs col-sm-2 nao_title-icon">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/profile.png' %}
+				<img src="{{ asset_url }}" alt="{{ 'core.admin.title'|trans }}" />
+			{% endimage %}
+		</div>
+	</div>
+
+	<div class="col-xs-12" id="admin_content">
+		<ul class="nav nav-pills nav-justified">
+	      	<li class="active">
+	      		<a href="#users" data-toggle="tab">{{ 'core.admin.users'|trans }}</a>
+	      	</li>
+	      	<li>
+	      		<a href="#observations" data-toggle="tab">{{ 'core.admin.observations'|trans }}</a>
+	      	</li>
+	  	</ul>
+	  	
+	  	<div class="tab-content">
+	      	<div class="tab-pane active" id="users">
+	      		{% for user in users %}
+	      			{{ macroUserDisplay.user_display(user) }}
+      			{% else %}
+      				<div class="col-xs-12">{{ 'core.admin.no_user'|trans }}</div>
+      			{% endfor %}
+	      	</div>
+	      	<div class="tab-pane" id="observations">
+	      		{% include 'admin/blocks/observations/observations.html.twig' %}
+	      	</div>
+	  	</div>
+	</div>
+
+	{{ macroObservationModal.observation_modal() }}
+	{{ macroUserEditModal.user_edit_modal() }}
+	{{ macroUserDeleteModal.user_delete_modal() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts filter='?jsqueeze'
+        'bundles/app/js/admin.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

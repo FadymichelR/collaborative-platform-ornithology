@@ -1,0 +1,99 @@
+{% extends 'layout.html.twig' %}
+{% set homepage = true %}
+{% block stylesheets %}
+	{{ parent() }}
+    {% stylesheets filter='cssrewrite, ?scssphp'
+    'bundles/app/css/search.css'
+        'bundles/app/css/jcarousel.responsive.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+<div class="col-xs-12 nao_title">
+	<div class="col-xs-10 col-sm-6">
+		<h1>RECHERCHE</h1>
+	</div>
+
+	<div class="hidden-xs col-sm-2 nao_title-icon">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/search.png' %}
+			<img src="{{ asset_url }}" alt="" />
+		{% endimage %}
+	</div>
+</div>
+<div class="col-xs-12" id="search_content">
+	<div id="container_fiche" style="display:none;">
+	</div>
+	<div id="container_find">
+
+		{{ form_start(form) }}
+	    <div class="input-group">
+		{{ form_widget(form.mySearch) }}
+		<div class="input-group-btn">
+	      <button class="btn btn-lg btn-default search-btn" type="button">
+	        <i class="glyphicon glyphicon-search"></i>
+	      </button>
+		</div>
+		</div>
+		{{ form_end(form) }}
+
+
+	  <div class="list-group search-list" id="results">
+	  </div>
+	</div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block script %}
+<script>
+$(document).ready(function(){
+	$('#form_mySearch').keyup(function() {
+	  var value = $(this).val();
+	  	if(value === '' || value.length < 3) {
+	  		$('#results').empty();
+  		}
+  		else {
+	      $.ajax({
+	         url : '{{ path('search') }}', 
+	         type : 'GET', 
+	         data : 'search=' + value,
+	         success: function(reponse) { 
+	     		$('#results').empty();
+	     	    if (reponse.error) {
+     	    		$('#results').prepend('<p>{{ 'core.find.msg.nofind'|trans }}</p>');
+	     	    }
+	     	    else {
+					Object.keys(reponse).forEach(function(key) {
+
+						if (key == 0) {
+							$('#results').append('<a href="'+ reponse[key].link +'" class="list-group-item theFind w3-green w3-opacity-3">'+ reponse[key].name +'</a>');
+						}
+						else {
+
+					    	$('#results').append('<a href="'+ reponse[key].link +'" class="list-group-item theFind">'+ reponse[key].name +'</a>');
+					    }
+					});
+	     	    }
+	          },
+             error: function() { 
+                $('#results').empty();
+                $('#results').html('<p>{{ 'core.find.msg.error'|trans }}</p>');
+                }
+	      });
+  		}
+	});
+
+});
+
+$("#results").on("click", "a.theFind", function(){
+	var href = $(this).attr('href');
+    $('#container_find,.nao_title').hide('slow');
+    $('body').css({'background-image': 'url(http://assets.fhuszti.tech/nao/search/search-bg.jpg)'});
+    $('#container_fiche').load(href);
+    $('#container_fiche').show('slow');
+    return false;
+});
+
+</script>
+{% endblock %}

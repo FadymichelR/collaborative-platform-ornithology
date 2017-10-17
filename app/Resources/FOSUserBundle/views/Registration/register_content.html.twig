@@ -1,0 +1,81 @@
+<div class="col-xs-12 nao_title">
+	<div class="col-xs-10 col-sm-6">
+		<h1>{{ 'core.register.title'|trans|upper }}</h1>
+	</div>
+
+	<div class="hidden-xs col-sm-2 nao_title-icon">
+		{% image 'http://assets.fhuszti.tech/nao/second-menu/register.png' %}
+			<img src="{{ asset_url }}" alt="{{ 'core.second-menu.register'|trans }}" />
+		{% endimage %}
+	</div>
+</div>
+
+<div class="col-xs-12" id="register_content">
+	{{ form_start(form, {
+		'method': 'post',
+		'action': path('fos_user_registration_register'),
+		'attr': {
+			'class': 'fos_user_registration_register form-horizontal'
+		}
+	}) }}
+        {% if form_errors(form.firstName) %}
+            {{ form_errors(form.firstName) }}
+        {% endif %}
+        {% if form_errors(form.surname) %}
+            {{ form_errors(form.surname) }}
+        {% endif %}
+        {% if form_errors(form.email) %}
+            {{ form_errors(form.email) }}
+        {% endif %}
+        {% if form_errors(form.plainPassword.first) %}
+            {{ form_errors(form.plainPassword.first) }}
+        {% endif %}
+        {% if form_errors(form.plainPassword.second) %}
+            {{ form_errors(form.plainPassword.second) }}
+        {% endif %}
+        {% if form_errors(form) %}
+            {{ form_errors(form) }}
+        {% endif %}
+
+        <div class="form-group">
+            {{ form_label(form.firstName) }}
+            <div class="col-sm-8">
+            	{{ form_widget(form.firstName) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.surname) }}
+            <div class="col-sm-8">
+            	{{ form_widget(form.surname) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            <div class="col-sm-8">
+            	{{ form_widget(form.email) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.plainPassword.first) }}
+            <div class="col-sm-8">
+            	{{ form_widget(form.plainPassword.first) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.plainPassword.second) }}
+            <div class="col-sm-8">
+            	{{ form_widget(form.plainPassword.second) }}
+            </div>
+        </div>
+	    
+	    <div class="form-group" id="register_submit-group">
+	        <input type="submit" class="btn btn-info btn-lg" value="{{ 'core.register.submit'|trans|upper }}" />
+	    </div>
+	{{ form_end(form) }}
+
+    <div id="register_bird" class=""></div>
+</div>

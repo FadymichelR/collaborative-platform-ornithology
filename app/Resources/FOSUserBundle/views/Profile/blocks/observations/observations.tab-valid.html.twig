@@ -1,0 +1,7 @@
+<div class="tab-pane active" id="valid">
+	{% for observation in user.observations|reverse if observation.status %}
+	    {{ macroObservationDisplay.observation_display(observation) }}
+	{% else %}
+		{% include '@FOSUser/Profile/blocks/observations/observations.empty.html.twig' %}
+	{% endfor %}
+</div>

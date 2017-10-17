@@ -1,0 +1,152 @@
+{% extends 'layout.html.twig' %}
+{% set homePage = true %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite, ?scssphp'
+        'bundles/app/css/home.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+	<div id="carousel" class="row carousel slide" data-ride="carousel">
+	  	<ol class="carousel-indicators">
+		    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel" data-slide-to="1"></li>
+		    <li data-target="#carousel" data-slide-to="2"></li>
+	  	</ol>
+
+	  	<div class="carousel-inner">
+		    <div class="item active">
+			    <a href="{{ path('core_home') }}" title="{{ 'core.header.observation.link'|trans }}">
+	                {% image 'http://assets.fhuszti.tech/nao/home/slide-observation.png' %}
+	                    <img src="{{ asset_url }}" alt="{{'core.header.observation.link'|trans}}" />
+	                {% endimage %}
+	            </a>
+		    </div>
+		    <div class="item">
+		    	<a href="{{ path('find') }}" title="{{ 'core.header.search.link'|trans }}">
+	                {% image 'http://assets.fhuszti.tech/nao/home/slide-search.png' %}
+	                    <img src="{{ asset_url }}" alt="{{'core.header.search.link'|trans}}" />
+	                {% endimage %}
+	            </a>
+		    </div>
+	  	</div>
+
+	  	<a class="left carousel-control" href="#carousel" data-slide="prev">
+	    	<span class="glyphicon glyphicon-chevron-left"></span>
+	  	</a>
+	  	<a class="right carousel-control" href="#carousel" data-slide="next">
+	    	<span class="glyphicon glyphicon-chevron-right"></span>
+	  	</a>
+	</div>
+
+    <div id="mainContent" class="row">
+    	<div class="col-xs-12 col-sm-6 col-md-6 home-block">
+	    	<a href="{{ path('app_observation') }}" title="{{ 'core.header.observation.link'|trans }}">
+		    	<div class="col-xs-12 alert alert-info">
+		    		{% image 'http://assets.fhuszti.tech/nao/second-menu/observation.png' %}
+	                    <img src="{{ asset_url }}" alt="{{'core.header.observation.link'|trans}}" />
+	                {% endimage %}
+		    	</div>
+		    	<div class="col-xs-12 home-block-content">
+		    		<h3>{{ 'core.home.block_obs.title'|trans }}</h3>
+
+		    		<p>
+		    			{{ 'core.home.block_obs.text'|trans }}
+		    		</p>
+		    	</div>
+	    	</a>
+    	</div>
+
+
+    	<div class="col-xs-12 col-sm-6 col-md-6 home-block">
+    		<a href="{{ path('find') }}" title="{{ 'core.header.search.link'|trans }}">
+		    	<div class="col-xs-12 alert alert-info">
+		    		{% image 'http://assets.fhuszti.tech/nao/second-menu/search.png' %}
+	                    <img src="{{ asset_url }}" alt="{{'core.header.search.link'|trans}}" />
+	                {% endimage %}
+		    	</div>
+		    	<div class="col-xs-12 home-block-content">
+		    		<h3>{{ 'core.home.block_search.title'|trans }}</h3>
+
+		    		<p>
+		    			{{ 'core.home.block_search.text'|trans }}
+		    		</p>
+		    	</div>
+	    	</a>
+    	</div>
+
+    	<div class="col-xs-12 col-sm-6{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %} col-md-5 col-md-push-1{% else %} col-md-4{% endif %} home-block">
+    		<a href="{{ path('app_contact') }}" title="{{ 'core.header.contact.link'|trans }}">
+		    	<div class="col-xs-12 alert alert-info">
+		    		{% image 'http://assets.fhuszti.tech/nao/second-menu/contact.png' %}
+	                    <img src="{{ asset_url }}" alt="{{'core.header.contact.link'|trans}}" />
+	                {% endimage %}
+		    	</div>
+		    	<div class="col-xs-12 home-block-content">
+		    		<h3>{{ 'core.home.block_contact.title'|trans }}</h3>
+
+		    		<p>
+		    			{{ 'core.home.block_contact.text'|trans }}
+		    		</p>
+		    	</div>
+	    	</a>
+    	</div>
+
+    	{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    		<div class="col-xs-12 col-md-5 col-md-push-1 home-block" id="home_block-profile">
+	    		<a href="{{ path('fos_user_profile_show') }}" title="{{ 'core.header.profile.link'|trans }}">
+			    	<div class="col-xs-12 alert alert-info">
+			    		{% image 'http://assets.fhuszti.tech/nao/second-menu/profile.png' %}
+		                    <img src="{{ asset_url }}" alt="{{'core.header.profile.link'|trans}}" />
+		                {% endimage %}
+			    	</div>
+			    	<div class="col-xs-12 home-block-content">
+			    		<h3>{{ 'core.home.block_profile.title'|trans }}</h3>
+
+			    		<p>
+			    			{{ 'core.home.block_profile.text'|trans }}
+			    		</p>
+			    	</div>
+		    	</a>
+	    	</div>
+    	{% else %}
+	    	<div class="col-xs-12 col-sm-6 col-md-4 home-block">
+	    		<a href="{{ path('fos_user_registration_register') }}" title="{{ 'core.header.registration.link'|trans }}">
+			    	<div class="col-xs-12 alert alert-info">
+			    		{% image 'http://assets.fhuszti.tech/nao/second-menu/register.png' %}
+		                    <img src="{{ asset_url }}" alt="{{'core.header.registration.link'|trans}}" />
+		                {% endimage %}
+			    	</div>
+			    	<div class="col-xs-12 home-block-content">
+			    		<h3>{{ 'core.home.block_register.title'|trans }}</h3>
+
+			    		<p>
+			    			{{ 'core.home.block_register.text'|trans }}
+			    		</p>
+			    	</div>
+		    	</a>
+	    	</div>
+
+	    	<div class="col-xs-12 col-sm-6 col-md-4 home-block">
+	    		<a href="{{ path('fos_user_security_login') }}" title="{{ 'core.header.login.link'|trans }}">
+			    	<div class="col-xs-12 alert alert-info">
+			    		{% image 'http://assets.fhuszti.tech/nao/second-menu/login.png' %}
+		                    <img src="{{ asset_url }}" alt="{{'core.header.login.link'|trans}}" />
+		                {% endimage %}
+			    	</div>
+			    	<div class="col-xs-12 home-block-content">
+			    		<h3>{{ 'core.home.block_login.title'|trans }}</h3>
+
+			    		<p>
+			    			{{ 'core.home.block_login.text'|trans }}
+			    		</p>
+			    	</div>
+		    	</a>
+	    	</div>
+    	{% endif %}
+    </div>
+{% endblock %}

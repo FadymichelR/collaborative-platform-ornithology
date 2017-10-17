@@ -1,0 +1,46 @@
+core:
+    resource: "@AppBundle/Controller/CoreController.php"
+    type:     annotation
+    prefix:   /
+app:
+    resource: "@AppBundle/Controller/AjaxController.php"
+    type:     annotation
+    prefix:   /ajax
+App:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+admin:
+    resource: "@AppBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
+observation:
+    resource: "@AppBundle/Controller/ObservationController.php"
+    type:     annotation
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Controller/UserController.php"
+    type:     annotation
+    prefix:   /admin/user
+
+fos_user_security:
+    resource: "@UserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@UserBundle/Resources/config/routing/profile.xml"
+    prefix: /profil
+
+fos_user_register:
+    resource: "@UserBundle/Resources/config/routing/registration.xml"
+    prefix: /inscription
+
+fos_user_resetting:
+    resource: "@UserBundle/Resources/config/routing/resetting.xml"
+    prefix: /reinitialisation
+
+fos_user_change_password:
+    resource: "@UserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profil

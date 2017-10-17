@@ -1,0 +1,19 @@
+{% macro observation_display(observation, state) %}
+	<div class="col-xs-12 observation-row" href="#admin_obs-modal" data-toggle="modal"{% if observation.image is not empty %} data-image="{{ observation.image.image }}"{% endif %} data-name="{{ observation.birdName|capitalize }}" data-date="{{ observation.date|date("d/m/Y") }}" data-country="{{ observation.country|capitalize }}"{% if observation.comment is not empty %} data-comment="{{ observation.comment|capitalize }}"{% endif %} data-lattitude="{{ observation.lattitude }}" data-longitude="{{ observation.longitude }}" data-state="{{ state }}" data-id="{{ observation.id }}" data-url="{{ path('admin_home') }}">
+    	<div class="hidden-xs col-sm-11">
+    		{{ observation.birdName }} - {{ observation.date|date("d/m/Y") }} - {{ observation.country }}
+   		</div>
+   		<div class="visible-xs col-xs-10">
+            {{ observation.birdName }}<br />
+    		{{ observation.date|date("d/m/Y") }} - {{ observation.country }}
+   		</div>
+
+   		<div class="col-xs-2 col-sm-1">
+   			{% if observation.image is not empty %}
+   				{% image 'http://assets.fhuszti.tech/nao/profile/profile-photo-icon.png' %}
+					<img src="{{ asset_url }}" alt="{{ 'core.profile.block2.content.img_icon'|trans }}" />
+				{% endimage %}
+   			{% endif %}
+   		</div>
+	</div>
+{% endmacro %}

@@ -1,0 +1,55 @@
+body {
+	background-image: url("http://assets.fhuszti.tech/nao/search/search-bg.jpg");
+  	background-size: cover;
+  	background-position: center center;
+  	background-repeat: no-repeat;
+}
+.search-input {
+	height:70px;
+	border:0px;
+	font-weight: bold;
+	color:#000;
+}
+.search-btn {
+	border:0px;
+	height:70px;
+	padding: 16px 40px;
+    font-size: 32px;
+}
+.search-list {
+	border-top:5px solid #eee;
+	padding: 0px
+}
+.search-list a.list-group-item {
+	border:0px;
+    border-bottom: 4px solid #eee;
+	height:70px;
+	padding: 16px 40px;
+    color: #555;
+    font-size: 18px;
+}
+#search_content {
+	margin-top: 45px;
+	padding: 0px;
+	font-size: 1.2em;
+	background-color: #f2f1ef;
+	opacity:0.90;
+	border: 1px outset #eee;
+	min-height: 755px;
+}
+.w3-green,.w3-hover-green:hover{color:#000!important;background-color:#87d37c!important}
+.w3-opacity-3,.w3-hover-opacity:hover{opacity:0.80}
+
+@media (max-width: 767px) {
+  #search_content {
+	margin-top: 0px;
+	height: auto;
+	}
+	#wrapper{
+		margin: 0px;
+		padding: 0px
+	}
+	#content {
+		padding: 0px;
+	}
+}

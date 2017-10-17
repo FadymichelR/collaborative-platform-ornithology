@@ -1,0 +1,161 @@
+body {
+	background-image: url("http://assets.fhuszti.tech/nao/login/login-bg.jpg");
+  	background-size: cover;
+  	background-position: center center;
+  	background-repeat: no-repeat;
+}
+
+#admin_content {
+	position: relative;
+	margin-top: 45px;
+	padding: 0 0 20px;
+	font-size: 1.2em;
+	background-color: rgb(255, 255, 255);
+  	background-color: rgba(255, 255, 255, 0.7);
+	border: 1px outset #eee;
+}
+
+#users {
+	margin-top: 20px;
+}
+.user_button-row {
+	text-align: right;
+}
+
+#observations {
+	padding: 0 0 30px;
+}
+#observations .active>a {
+	background-color: inherit;
+}
+#observations .row {
+	margin: 0;
+}
+#observations .nav li {
+	padding: 0;
+}
+#observations .nav li>a {
+	padding: 20px 10px;
+}
+#observations .nav li>a img {
+	margin-bottom: 10px;
+}
+#observations .tab-content {
+	margin-top: 20px;
+}
+#observations .observation-row, #users .user-row {
+	border-bottom: 1px solid #ccc;
+	line-height: 50px;
+}
+#observations .observation-row:hover, #observations .observation-row:active, #observations .observation-row:focus {
+	background-color: #eee;
+}
+
+#admin_content, #admin_obs-modal .modal-content, #admin_user-delete-modal .modal-content, #admin_user-edit-modal .modal-content {
+	background-color: rgb(187, 223, 180);
+}
+
+#user-edit-form {
+	font-size: 1.2em;
+	padding: 0 50px;
+}
+#core_user_edit_roles {
+	padding: 8px 0 0;
+}
+#core_user_edit_roles_0, #core_user_edit_roles_1 {
+	margin: 0 8px 0 0;
+}
+#core_user_edit_roles_1 {
+	margin-left: 30px;
+}
+#user-edit-form-pass-info {
+	margin-bottom: 20px;
+}
+
+#admin_obs-modal-state ul {
+	padding: 0;
+}
+#admin_obs-modal-state ul li a {
+	line-height: 30px;
+}
+.admin_obs-modal-left-panel img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.admin_obs-modal-left-panel ul {
+	list-style-type: none;
+	font-size: 1.4em;
+}
+.admin_obs-modal-right-panel {
+	height: 250px;
+}
+.admin_obs-modal-right-panel, .admin_obs-modal-right-panel * {
+    overflow: visible;
+}
+.admin_obs-modal-comment-panel {
+	word-wrap: break-word;
+}
+
+
+
+
+
+@media (max-width: 991px) {
+	#login_content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+@media (max-width: 767px) {
+	#content, #wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	h1 {
+		font-size: 2em;
+		padding-left: 0;
+	}
+
+	#admin_content .nav-justified>li {
+	    display: table-cell;
+	    width: 1%;
+	}
+
+	#observations .nav-justified>li>a  {
+	    border-bottom: 1px solid #ddd !important;
+	    border-radius: 4px 4px 0 0 !important;
+	    margin-bottom: 0 !important;
+	}
+	#observations .observation-row {
+		line-height: 30px;
+	}
+
+	#user-edit-form {
+		padding: 0;
+	}
+
+	.admin_obs-modal-body .admin_obs-modal-left-panel {
+		margin-top: 0;
+	}
+}
+@media (max-width: 479px) {
+	.col-xxs-12 {
+		width: 100%;
+	}
+
+	#users .user-row {
+		line-height: 30px;
+		padding-bottom: 10px;
+	}
+	.user_button-row {
+		text-align: left;
+	}
+
+	#observations .nav li>a {
+		font-size: 0.7em;
+	}
+
+	#core_user_edit_roles_1 {
+		margin-left: 10px;
+	}
+}

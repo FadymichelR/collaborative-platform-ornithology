@@ -1,0 +1,231 @@
+core:
+    site:
+        title: Nos Amis les Oiseaux
+        logo: Nos Amis les Oiseaux
+        alt_img: Image de décoration
+    
+    header: 
+        project:
+            link: En savoir plus sur le projet
+            value: Le projet
+        observation: 
+            link: Partagez une observation
+            value: Observation
+        search: 
+            link: Recherchez un oiseau
+            value: Recherche
+        contact: 
+            link: Contactez-nous
+            value: Contact
+        registration: 
+            link: S'inscrire
+            value: Inscription
+        login: 
+            link: Se connecter
+            value: Connexion
+        profile:
+            link: Accéder à votre espace
+            value: Mon Espace
+        logout:
+            link: Se déconnecter
+            value: Déconnexion
+
+    find:
+        input_find: Tapez le nom de l'oiseau
+        button_find: Rechercher
+        msg:
+            nofind: Aucuns résultats ne correspond à cette recherche
+            error: Une erreur est survenue, veuillez réessayer
+    
+    bird:
+        desc:
+            family: Famille
+            rang: Rang
+            name_latin: Nom latin
+            full_name: Nom complet
+            common_name: Nom(s) Commun(s)
+        observation:
+            title: OBSERVATIONS
+        photo:
+            title: PHOTOS
+    second-menu:
+        observation: Laisser une observation
+        search: Rechercher un oiseau
+        contact: Nous contacter
+        register: S'inscrire
+        profile: Voir son profil
+        login: Se connecter
+        logout: Se déconnecter
+
+    footer:
+        left_links:
+            search:
+                link: Rechercher un oiseau
+                title: Rechercher un oiseau
+            observations:
+                link: Partager ses observations
+                title: Partager ses observations
+            project:
+                link: Participer au projet
+                title: Participer au projet
+        copyright: © 2017 nosamislesoiseaux.fr
+        right_links:
+            legal:
+                link: Mentions légales
+                title: Mentions légales
+            status:
+                link: Statuts
+                title: Statuts
+            agency:
+                link: WebAgency
+                title: Agence WebAgency
+    contact:
+        form:
+            name: Nom
+            mail: Email
+            subject: Objet
+            message: Message
+            send: Envoyer
+
+    second-menu:
+        observation: Laisser une observation
+        search: Rechercher un oiseau
+        contact: Nous contacter
+        register: S'inscrire
+        profile: Voir son profil
+        login: Se connecter
+        logout: Se déconnecter
+
+    home:
+        block_obs:
+            title: J'ai observé un oiseau
+            text: Vous pouvez partager ici l'endroit où vous l'avez vu, vos observations, ainsi que vos photos pour nous aider à avancer notre programme de recherche !
+        block_project:
+            title: Le projet
+            text: La présentation en détails de notre projet. Pour qui ? Où ? Pourquoi ? Comment participer ?
+        block_search:
+            title: Quel est cet oiseau ?
+            text: Vous recherchez des informations sur un oiseau ? Notre base de donnée est par ici !
+        block_contact:
+            title: Nous contacter
+            text: Vous avez besoin d'infos, vous avez des remarques ou tout simplement envie d'échanger ? N'hésitez pas à nous contacter !
+        block_profile:
+            title: Mon Espace
+            text: Retrouvez vos informations, ainsi que toutes vos observations et photos. C'est ici que vous pouvez changer votre adresse email et votre mot de passe.
+        block_register:
+            title: M'inscrire
+            text: Rejoignez-nous en deux clics et participez à notre plateforme collaborative !
+        block_login:
+            title: Me connecter
+            text: Connectez-vous afin d'accéder à toutes les fonctionnalités de la plateforme.
+        p5: Retrouvez toutes vos informations, l'historique de vos observations, vos photos, et vos oiseaux favoris
+
+    admin:
+        title: Administration
+        users: Utilisateurs
+        observations: Observations
+        no_user: Aucun utilisateur n'existe pour le moment.
+        close: Fermer
+        confirm: Confirmer
+        abort: Annuler
+        delete:
+            title: Supprimer l'utilisateur
+            question: |
+                Êtes-vous certain(e) de vouloir supprimer définitivement cet utilisateur ?
+                Cette action est irréversible.
+        edit:
+            title: Modifier l'utilisateur
+            info: Ne remplissez pas ces champs si vous ne souhaitez pas modifier le mot de passe actuel de l'utilisateur.
+
+    login:
+        title: Connexion
+        register_button: Créer un compte
+        email:
+            label: Adresse email
+            placeholder: exemple@email.fr
+        password:
+            label: Mot de passe
+            placeholder: Votre mot de passe
+        remember_me: Se souvenir de moi
+        submit: Se connecter
+        forgotten_pass: Mot de passe oublié ?
+        modal:
+            title: Réinitialiser son mot de passe
+            content: Nous allons vous envoyer un email afin de confirmer votre identité, puis vous pourrez créer un nouveau mot de passe.
+            button: Valider
+
+    observation:
+        locationTitle: LOCALITE * Déplacer le marqueur sur la carte pour localiser le lieu de l'observation
+        buttonGeolocation: me geolocaliser
+        buttonMap: localiser sur une carte
+
+    reset_pass:
+        email:
+            subject: 'Bienvenue %username% !'
+            message: |
+                Bonjour %username% !
+
+                Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+                
+                Ce lien ne peut être utilisé qu'une seule fois pour valider votre compte.
+
+                Cordialement,
+                Nos Amis les Oiseaux
+        check_email: |
+            Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+
+            Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
+
+    register:
+        title: Inscription
+        submit: Créer mon compte
+
+    profile:
+        title: Mon Espace
+        block1:
+            header: Profil
+            content:
+                title: Informations
+                surname: Nom
+                firstname: Prénom
+                email: Adresse email
+                password: Mot de passe
+                edit: Modifier
+        block2:
+            header: Observations
+            content:
+                tab1: Validées
+                tab2: En attente
+                tab3: Refusées
+                button: En voir plus
+                img_icon: Cette observation contient une photo
+                empty:
+                    observation:
+                        sentence: Aucune observation ici pour le moment.
+                        link: 
+                            title: Vers la page d'Observation
+                            value: Soumettez-en une !
+                    photo:
+                        sentence: Aucune photo ici pour le moment.
+                        link: 
+                            title: Vers la page d'Observation
+                            value: Soumettez une observation et une photo !
+        block3:
+            header: Photos
+            content: 
+        modal:
+            email:
+                title: Changer d'adresse email
+            password:
+                title: Changer de mot de passe
+
+    validation:
+        user:
+            firstname:
+                blank: Veuillez saisir votre prénom.
+                min: Votre prénom ne peut contenir moins de 2 caractères.
+                max: Votre prénom ne peut contenir plus de 255 caractères.
+            surname:
+                blank: Veuillez saisir votre nom.
+                min: Votre nom ne peut contenir moins de 2 caractères.
+                max: Votre nom ne peut contenir plus de 255 caractères.

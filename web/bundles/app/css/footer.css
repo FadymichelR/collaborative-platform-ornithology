@@ -1,0 +1,56 @@
+#footer {
+	padding: 10px 20px;
+	margin: 0;
+	background-image: url("http://assets.fhuszti.tech/nao/footer/footer-bg.png");
+	height: 100%;
+	max-height: 160px;
+}
+
+#footer a {
+	color: #888;
+	margin: 0 10px;
+}
+
+
+
+
+
+
+#footer_left-links {
+	font-size: 1.3em;
+	padding-top: 10px;
+}
+#footer_copyright {
+	margin-top: 10px;
+}
+
+#footer_logo {
+	text-align: center;
+}
+#footer img {
+	max-width: 95%;
+	max-height: 140px;
+}
+
+#footer_right-links {
+	font-size: 1.2em;
+	text-align: center;
+	padding-top: 30px;
+}
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+	#footer {
+		background-color: #f8f8f8;
+		text-align: center;
+	}
+
+	#footer_right-links {
+		padding-top: 0;
+	}
+}

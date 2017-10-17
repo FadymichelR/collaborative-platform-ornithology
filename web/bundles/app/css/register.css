@@ -1,0 +1,93 @@
+body {
+	background-image: url("http://assets.fhuszti.tech/nao/register/register-bg.jpg");
+  	background-size: cover;
+  	background-position: center center;
+  	background-repeat: no-repeat;
+}
+
+#register_content {
+	margin-top: 45px;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 1.2em;
+	background-color: rgb(200, 229, 238);
+	background-color: rgba(200, 229, 238, 0.95);
+	border: 1px outset #eee;
+}
+#register_content #register_bird {
+	background-image: url('http://assets.fhuszti.tech/nao/register/register-bird.png');
+	background-size: 160px;
+	background-repeat: no-repeat;
+	height: 180px;
+	width: 160px;
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+#register_content form {
+	margin-top: 70px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+#register_content form input:not([type="submit"]) {
+	margin-bottom: 15px;
+	width: 90%;
+}
+
+#register_content #register_submit-group {
+	text-align: center;
+	margin-bottom: 70px;
+	margin-top: 40px;
+}
+#register_content #register_submit-group input {
+	padding: 20px;
+}
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+	#register_content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#register_content #register_bird {
+		background-size: 120px;
+		height: 140px;
+		width: 120px;
+		right: 10px;
+		bottom: 20px;
+	}
+	#register_content form {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+@media (max-width: 767px) {
+	#content, #wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	h1 {
+		font-size: 2em;
+		padding-left: 20px;
+	}
+
+	#register_content form {
+		margin-top: 40px;
+	}
+	#register_content form label {
+		margin-bottom: 5px;
+	}
+	#register_content form input:not([type="submit"]) {
+		width: 100%;
+	}
+}
+@media (max-width: 479px) {
+	#register_content #register_bird {
+		display: none;
+	}
+}

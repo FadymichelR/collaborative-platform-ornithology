@@ -1,0 +1,207 @@
+<?php
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+/**
+ * Bird
+ *
+ * @ORM\Table(name="bird")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BirdRepository")
+ */
+class Bird
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="family", type="string", length=255)
+     */
+    private $family;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rank", type="string", length=255)
+     */
+    private $rank;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="latinName", type="string", length=255)
+     */
+    private $latinName;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fullName", type="string", length=255)
+     */
+    private $fullName;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commonName", type="string", length=255)
+     */
+    private $commonName;
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Observation", mappedBy="bird", cascade={"persist"})
+     * @Assert\Valid()
+     */
+    private $observations;
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * Set family
+     *
+     * @param string $family
+     *
+     * @return Bird
+     */
+    public function setFamily($family)
+    {
+        $this->family = $family;
+        return $this;
+    }
+    /**
+     * Get family
+     *
+     * @return string
+     */
+    public function getFamily()
+    {
+        return $this->family;
+    }
+    /**
+     * Set rank
+     *
+     * @param string $rank
+     *
+     * @return Bird
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+        return $this;
+    }
+    /**
+     * Get rank
+     *
+     * @return string
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+    /**
+     * Set latinName
+     *
+     * @param string $latinName
+     *
+     * @return Bird
+     */
+    public function setLatinName($latinName)
+    {
+        $this->latinName = $latinName;
+        return $this;
+    }
+    /**
+     * Get latinName
+     *
+     * @return string
+     */
+    public function getLatinName()
+    {
+        return $this->latinName;
+    }
+    /**
+     * Set fullName
+     *
+     * @param string $fullName
+     *
+     * @return Bird
+     */
+    public function setFullName($fullName)
+    {
+        $this->fullName = $fullName;
+        return $this;
+    }
+    /**
+     * Get fullName
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->fullName;
+    }
+    /**
+     * Set commonName
+     *
+     * @param string $commonName
+     *
+     * @return Bird
+     */
+    public function setCommonName($commonName)
+    {
+        $this->commonName = $commonName;
+        return $this;
+    }
+    /**
+     * Get commonName
+     *
+     * @return string
+     */
+    public function getCommonName()
+    {
+        return $this->commonName;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->observations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+     * Add observation
+     *
+     * @param \AppBundle\Entity\Observation $observation
+     *
+     * @return Bird
+     */
+    public function addObservation(\AppBundle\Entity\Observation $observation)
+    {
+        $this->observations[] = $observation;
+        return $this;
+    }
+    /**
+     * Remove observation
+     *
+     * @param \AppBundle\Entity\Observation $observation
+     */
+    public function removeObservation(\AppBundle\Entity\Observation $observation)
+    {
+        $this->observations->removeElement($observation);
+    }
+    /**
+     * Get observations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getObservations()
+    {
+        return $this->observations;
+    }
+}

@@ -1,0 +1,130 @@
+/*Bloc home*/
+.divLink {
+	height: 450px;
+	border: 1px solid black;
+	margin-bottom: 75px;
+	box-shadow: 1px 1px  #313133;
+}
+
+.titleBlocHome {
+	text-align: center;
+	background-color: #F4F4F4;
+	height: 100px;
+	opacity: 0.9;
+	padding-top: 15px;
+}
+
+/*.item img.img-responsive {
+	padding: 0px;
+	margin: 0px;
+}*/
+
+.blocTextHome {
+	text-align: center;
+	background-color: #F4F4F4;
+	height: 250px;
+	opacity: 0.9;
+	padding: 0px 45px 0px 45px;
+	line-height: 35px;
+}
+
+#mainBlocHome {
+	padding: 75px 25px 75px 25px;
+	background-image: url( "http://assets.fhuszti.tech/nao/home/home-bg.png" );
+	background-size: cover;
+}
+
+#slider {
+	padding: 0px;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	height: 100px;
+	background-color: #ABDCF3;
+	padding: 10px 0px 10px 0px;
+}
+
+#line {
+	border: none;
+	border-bottom: 1px solid black;
+	margin: 0px 30px 0px 30px;
+	padding-top: 25px;
+}
+
+#wrapper {
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	width: 100%;
+}
+
+#carousel a {
+	padding: 0;
+	height: 100%;
+	border-bottom: 1px solid #ccc;
+}
+
+#mainContent {
+	background-image: url('http://assets.fhuszti.tech/nao/home/home-bg.png');
+	padding-top: 30px;
+	text-align: center;
+}
+#mainContent .home-block {
+	margin-bottom: 30px;
+}
+#mainContent .home-block a {
+	color: black;
+}
+#mainContent .home-block .alert-info {
+	height: 80px;
+	padding: 10px 15px;
+	margin-bottom: 0;
+	border-radius: 0;
+}
+#mainContent .home-block .alert-info img {
+	height: 60px;
+}
+#mainContent .home-block-content {
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.95);
+	border: 1px outset #ccc;
+	padding: 0 30px 20px;
+	min-height: 245px;
+}
+#mainContent .home-block-content h3 {
+	width: 90%;
+	border-bottom: 3px solid black;
+	margin: auto;
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+#mainContent .home-block-content p {
+	line-height: 30px;
+}
+
+
+
+
+
+
+@media all and (max-width: 1114px) {
+	#mainContent .home-block-content {
+		min-height: 300px;
+	}
+}
+@media all and (max-width: 991px) {
+	#mainContent .home-block-content {
+		min-height: 270px;
+	}
+	#mainContent #home_block-profile .home-block-content {
+		min-height: auto;
+	}
+}
+@media all and (max-width: 767px) {
+	#mainContent .home-block-content {
+		min-height: auto;
+	}
+}

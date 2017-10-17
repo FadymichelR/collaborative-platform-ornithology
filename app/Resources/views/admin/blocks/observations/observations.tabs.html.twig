@@ -1,0 +1,43 @@
+<ul class="nav nav-pills nav-justified">
+  	<li class="active alert alert-success">
+  		<a href="#valid" data-toggle="tab">
+  			<div>
+      			{% image 'http://assets.fhuszti.tech/nao/profile/profile-green-owl.png' %}
+					<img src="{{ asset_url }}" alt="{{ 'core.profile.block2.content.tab1'|trans }}" />
+				{% endimage %}
+  			</div>
+
+  			<div>
+  				{{ 'core.profile.block2.content.tab1'|trans|upper }}
+  			</div>
+  		</a>
+  	</li>
+
+  	<li class="alert alert-info">
+  		<a href="#waiting" data-toggle="tab">
+  			<div>
+  				{% image 'http://assets.fhuszti.tech/nao/profile/profile-blue-owl.png' %}
+					<img src="{{ asset_url }}" alt="{{ 'core.profile.block2.content.tab2'|trans }}" />
+				{% endimage %}
+			</div>
+  			
+  			<div>
+  				{{ 'core.profile.block2.content.tab2'|trans|upper }}
+  			</div>
+  		</a>
+  	</li>
+  	
+  	<li class="alert alert-danger">
+  		<a href="#refused" data-toggle="tab">
+  			<div>
+  				{% image 'http://assets.fhuszti.tech/nao/profile/profile-red-owl.png' %}
+					<img src="{{ asset_url }}" alt="{{ 'core.profile.block2.content.tab3'|trans }}" />
+				{% endimage %}
+			</div>
+  			
+  			<div>
+  				{{ 'core.profile.block2.content.tab3'|trans|upper }}
+  			</div>
+  		</a>
+  	</li>
+</ul>

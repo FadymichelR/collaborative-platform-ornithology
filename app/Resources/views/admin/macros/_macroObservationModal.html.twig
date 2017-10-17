@@ -1,0 +1,35 @@
+{% macro observation_modal() %}
+	<div class="modal fade" id="admin_obs-modal">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">x</button>
+			        
+			        <h4 class="modal-title">
+			        	<div class="btn-group" id="admin_obs-modal-state"> 
+						</div>
+			        </h4>
+			     </div>
+
+		      	<div class="modal-body admin_obs-modal-body">
+		      		<div class="row">
+			      		<div class="col-xs-12 col-sm-5 admin_obs-modal-left-panel">
+			      		</div>
+
+			      		<div class="col-xs-12 col-sm-6 admin_obs-modal-right-panel" id="gmaps_canvas">
+			      		</div>
+		      		</div>
+
+		      		<div class="row">
+			      		<div class="col-xs-12 admin_obs-modal-comment-panel">
+			      		</div>
+		      		</div>
+		      	</div>
+
+		      	<div class="modal-footer">
+			        <button class="btn btn-info" data-dismiss="modal">{{ 'core.admin.close'|trans }}</button>
+			     </div>
+		    </div>
+	  	</div>
+	</div>
+{% endmacro %}

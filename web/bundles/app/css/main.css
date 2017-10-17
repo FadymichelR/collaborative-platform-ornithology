@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'OpenSans Regular';
+  src: url('../fonts/opensans_regular/OpenSans-Regular-webfont.eot');
+  src: url('../fonts/opensans_regular/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/opensans_regular/OpenSans-Regular-webfont.woff') format('woff'),
+       url('../fonts/opensans_regular/OpenSans-Regular-webfont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'OpenSans Light';
+    src: url('../fonts/opensans_light/OpenSans-Light-webfont.eot');
+    src: url('../fonts/opensans_light/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans_light/OpenSans-Light-webfont.woff') format('woff'),
+         url('../fonts/opensans_light/OpenSans-Light-webfont.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lane Narrow Regular';
+    src: url('../fonts/lane-narrow_regular/Lane-Narrow-Regular-webfont.eot');
+    src: url('../fonts/lane-narrow_regular/Lane-Narrow-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lane-narrow_regular/Lane-Narrow-Regular-webfont.woff') format('woff'),
+         url('../fonts/lane-narrow_regular/Lane-Narrow-Regular-webfont.ttf') format('truetype');
+}
+
+
+
+
+
+
+
+body {
+  font-family: 'OpenSans Regular', Arial, Helvetica, Verdana, Times, "Times New Roman", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'OpenSans Light', 'OpenSans Regular', Arial, Helvetica, Verdana, Times, "Times New Roman", sans-serif;
+}
+.modal {
+  font-family: 'Lane Narrow Regular', 'OpenSans Regular', Arial, Helvetica, Verdana, Times, "Times New Roman", sans-serif;
+}
+
+a {
+  color: #888;
+}
+
+#wrapper {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.nao_title {
+  padding: 10px 10px;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px outset #eee;
+}
+.nao_title>div:first-child {
+  padding-left: 0;
+}
+.nao_title h1 {
+  border-bottom: 3px solid black;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.nao_title-icon img {
+  max-width: 51px;
+  max-height: 51px;
+}
+
+.btn-standard {
+   padding: 10px 30px 10px 30px;
+   background-color: #318CE7;
+   font-size: 20pt;
+   font-family: 'OpenSans Regular';
+ }
+ .btn-loading {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.jcarousel img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.w3-margin-top {
+    margin-top:16px!important
+}
+.w3-margin-bottom {
+    margin-bottom:16px!important
+}
+.w3-center {
+    text-align:center!important
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #333;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+
+
+
+
+@media (max-width: 767px) {
+  #wrapper {
+    margin-bottom: 30px;
+  }
+
+  .nao_title {
+    display: none;
+  }
+
+  #wrapper, #content {
+    margin: 0px;
+    padding: 0px;
+  }
+}

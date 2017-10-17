@@ -1,0 +1,113 @@
+body {
+	background-image: url( "http://assets.fhuszti.tech/nao/contact/contact-bg.jpg" );
+	background-size: cover;
+	width: 100%;
+}
+
+#containerformContact {
+	margin-top: 45px;
+	padding: 30px;
+	font-size: 1.2em;
+	background-color: #CEE5C9;
+	opacity:0.90;
+	border: 0px;
+	min-height: 600px;
+}
+#containerformContact label {
+	margin-left: 20%;
+	margin-top:3%;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+#containerformContact .form-group {
+	margin-bottom: 35px!important;
+>>>>>>> find
+}
+
+#f {
+	margin-top: 150px;
+}
+
+#blocAdress {
+	background-color: #EBEAE9;
+	min-height: 200px;
+>>>>>>> find
+	margin-bottom: 150px;
+}
+
+.field {
+	margin-top: 50px;
+}
+
+input {
+	width: 100%;
+}
+
+#contact_message {
+	height: 150px;
+}
+
+#save {
+	text-align: right;
+>>>>>>> find
+}
+
+/*Bloc adresse*/
+#phoneNumber, #email {
+	height: 50px;
+	display: flex;
+	align-items: flex-end;
+}
+
+p {
+ 	margin-bottom: 0px;
+}
+
+#separatorLine {
+	display: flex;
+	justify-content: center;
+
+}
+#separatorLine img {
+
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+>>>>>>> find
+#adress {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+#textThanks {
+	background-color: #CEE5C9;
+	height: 0px;
+	margin-top:20%;
+	font-size: 20pt;
+>>>>>>> find
+	flex-direction: column;
+	justify-content: center;
+}
+
+#textThanks p {
+	margin-bottom: 25px;
+}
+
+
+@media all and (max-width: 768px) {
+	#pelican {
+		height: 50px;
+	}
+
+	#blocAdress {
+		min-height: 300px;
+	}
+	#containerformContact label {
+	margin-left: 0;
+	margin-top:0;
+	}
+	#containerformContact .form-group {
+	margin-bottom: 15px!important;
+}
+>>>>>>> find
+}

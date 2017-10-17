@@ -1,0 +1,235 @@
+body {
+	background-image: url( "http://assets.fhuszti.tech/nao/observations/observations-bg2.png" );
+	background-size: cover;
+}
+
+#map {
+	height: 500px;
+}
+
+#buttonGeolocation #buttonDisplayMap, #observation_longitude, .longitude, #observation_lattitude, .lattitude, #observation_country, .country
+ {
+	display: none;
+}
+
+#aperçuImage {
+	width: 100%;
+    height: auto;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+
+}
+
+#locationTitle p {
+	font-weight: 700;
+}
+
+#iconWorld {
+	height: 50px;
+	width: 50px;
+	margin-bottom: 25px;
+}
+
+#iconLoc {
+	height: 50px;
+	width: 30px;
+	margin-bottom: 25px;
+}
+
+#imageBlock {
+	height: 150px;
+	position: relative;
+	margin-bottom: 50px;
+	background-image: url( "http://assets.fhuszti.tech/nao/observations/observations-camera.png" );
+	border: 1px solid black;
+	background-size: 80px 60px;
+	background-position: center;
+	overflow:hidden;
+	background-color: #80CFF4;
+	background-repeat: no-repeat;
+	/*overflow: hidden;*/
+}
+
+#imgObs img {
+	padding-left: 450px;
+	height: 50px;
+}
+
+#textarea {
+	padding-left: 0px;
+}
+
+#observation_image_file {
+	padding-top: 60px;
+}
+
+.cornerSeparation img {
+	height: 20px;
+	width: 20px;
+}
+
+.cornerSeparation {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 10px;
+	padding-bottom: 50px;
+	padding-right: 35px;
+}
+
+/*img {
+	width:100%;
+	height:100%;
+	display:block;
+}*/
+
+#underline {
+	border: 0;
+	border-top: 1px solid black;
+	padding-bottom: 20px;
+	margin-top: 0px;
+}
+
+#title {
+	height: 80px;
+	margin-bottom: 50px;
+	background-color: #f2f1ef;
+	opacity: 0.5;
+	font-size: 2.7em;
+	padding-top: 10px;
+}
+#k {
+	display: flex;
+	height: 50px;
+}
+#title p {
+	margin-bottom: 0px;
+}
+
+#containerPageObs {
+	background-size: cover;
+	/*opacity: 0.4;*/
+	min-height: 800px;
+}
+
+#containerObservation {
+	background-color: #f2f1ef;
+	opacity: 0.9;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	margin-top: 45px;
+}
+
+#observation_save, #newObservationButton {
+	width: 100%;
+	height: 80px;
+	color: white;
+	background-color: #63c6f5;
+	box-shadow: 1px 1px  #313133;
+	font-family: Open sans;
+	font-weight: semiBold;
+}
+
+#newObservationButton {
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	margin-right: 50px;
+	margin-top: 80px;
+}
+
+#thanks {
+	height: 400px;
+	display: none;
+	background-color: #f2f1ef;
+	opacity: 0.9;
+	padding: 20px 60px 20px 20px;
+	margin-left: 0px;
+	width: 100%;
+	margin-top: 45px;
+}
+
+#textThanks {
+	margin-top: 50px;
+}
+
+#thanks a:hover {
+	text-decoration: none;
+}
+
+#buttonGeolocation, #buttonDisplayMap, #bgMobile {
+	display: none;
+}
+
+@media all and (max-width: 768px) {
+ 
+	#buttonGeolocation, #buttonDisplayMap  {
+		background-color: #80CFF4;
+		height: 150px;
+		display: block;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#linkGeolocation, #linkMap {
+		text-decoration: none;
+		color: white;
+	}
+
+	#map {
+		height: 0px;
+	}
+
+	input, textarea {
+		width: 100%;
+	}
+
+	#imageBlock {
+		height: 250px;
+	}
+
+	#title {
+		display: none;
+	}
+
+	#bgMobile {
+		display: block;
+		height: 
+	}
+
+	.row.noPadding {
+		padding: 0;
+		margin: 0;
+	}
+
+	#containerPageObs {
+		padding: 0;
+	}
+
+	.control-label, #textarea, #locationTitle p {
+		padding-left: 15px;
+	}
+
+	#observation_save {
+		margin-bottom: 20px;
+	}
+
+	#containerObservation {
+		margin-top: 0px;
+	}
+
+	#thanks {
+		margin-top: 0px;
+	}
+
+	#save .form-group {
+		margin-bottom: 0px;
+	}
+}
+

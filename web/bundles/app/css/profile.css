@@ -1,0 +1,173 @@
+body {
+	background-image: url("http://assets.fhuszti.tech/nao/profile/profile-bg.jpg");
+  	background-size: cover;
+  	background-position: center center;
+  	background-repeat: no-repeat;
+}
+.no-padding {
+	padding: 0;
+}
+.bold {
+	font-weight: bolder;
+}
+
+#profile_content {
+	margin-top: 45px;
+	font-size: 1.2em;
+	padding: 0;
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.95);
+	border: 1px outset #eee;
+}
+
+.profile-block-header {
+	background-color: rgb(156, 214, 147);
+	background-color: rgba(156, 214, 147, 0.9);
+	line-height: 50px;
+}
+.profile-block-content {
+	padding: 30px 50px;
+}
+
+#profile_block1-content {
+	margin-top: 50px;
+}
+#profile_block1-content-title img {
+	height: 26px;
+}
+#profile_block1-content-infos {
+	margin-top: 40px;
+}
+#profile_block1-content-infos>.row {
+	margin: 15px 0;
+}
+#profile_block1-content-infos>.row img {
+	height: 45px;
+	margin-top: -15px;
+	cursor: pointer;
+}
+
+#profile_email-modal .modal-content, #profile_pass-modal .modal-content {
+	background-color: rgb(187, 223, 180);
+}
+#profile_email-modal form, #profile_pass-modal form {
+	text-align: center;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#profile_block2-content {
+	padding: 0 0 30px;
+}
+#profile_block2-content .active>a {
+	background-color: inherit;
+}
+#profile_block2-content .row {
+	margin: 0;
+}
+#profile_block2-content .nav li {
+	padding: 0;
+}
+#profile_block2-content .nav li>a {
+	padding: 20px 10px;
+}
+#profile_block2-content .nav li>a img {
+	margin-bottom: 10px;
+}
+#profile_block2-content .tab-content {
+	margin-top: 20px;
+}
+#profile_block2-content .observation-row {
+	border-bottom: 1px solid #ccc;
+	line-height: 50px;
+	cursor: pointer;
+}
+#profile_block2-content .observation-row:hover, #profile_block2-content .observation-row:active, #profile_block2-content .observation-row:focus {
+	background-color: #eee;
+}
+
+#profile_block2-content .modal-content {
+	background-color: rgb(187, 223, 180);
+}
+#profile_block2-content .profile_obs-modal-body>div:first-of-type {
+	margin-top: 30px;
+}
+.profile_obs-modal-left-panel img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.profile_obs-modal-left-panel ul {
+	list-style-type: none;
+	font-size: 1.4em;
+}
+.profile_obs-modal-right-panel {
+	height: 250px;
+}
+.profile_obs-modal-right-panel, .profile_obs-modal-right-panel * {
+    overflow: visible;
+}
+.profile_obs-modal-comment-panel {
+	word-wrap: break-word;
+}
+
+#profile_block3-content {
+	padding: 30px 20px;
+}
+#profile_block3-content ul.gallery {
+	list-style-type: none;
+	padding-left: 0;
+}
+#profile_block3-content ul.gallery .text {
+	font-size: 0.8em;
+}
+
+
+
+
+
+
+	
+@media (max-width: 767px) {
+	#content, #wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#profile_block1-content-infos>.row img {
+		height: 40px;
+		margin-top: 0;
+	}
+	#profile_email-modal form, #profile_pass-modal form {
+		text-align: left;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#profile_email-modal-submit-group, #profile_pass-modal-submit-group {
+		text-align: center;
+	}
+
+	#profile_block2-content .nav-justified > li {
+	    display: table-cell;
+	    width: 1%;
+	}
+	#profile_block2-content .nav-justified > li > a  {
+	    border-bottom: 1px solid #ddd !important;
+	    border-radius: 4px 4px 0 0 !important;
+	    margin-bottom: 0 !important;
+	}
+	#profile_block2-content .observation-row {
+		line-height: 30px;
+	}
+	.profile_obs-modal-body .profile_obs-modal-left-panel {
+		margin-top: 0;
+	}
+
+	#profile_block3-content {
+		padding: 30px 10px;
+	}
+}
+@media (max-width: 479px) {
+	#profile_block2-content .nav li>a {
+		font-size: 0.7em;
+	}
+}

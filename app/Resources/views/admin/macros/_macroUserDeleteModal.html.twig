@@ -1,0 +1,24 @@
+{% macro user_delete_modal() %}
+	<div class="modal fade" id="admin_user-delete-modal">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">x</button>
+			        
+			        <h4 class="modal-title">
+			        	{{ 'core.admin.delete.title'|trans }}
+			        </h4>
+			     </div>
+
+		      	<div class="modal-body admin_obs-modal-body">
+		      		{{ 'core.admin.delete.question'|trans|nl2br }}
+		      	</div>
+
+		      	<div class="modal-footer">
+			        <a class="btn btn-success" href="{{ path('admin_home') }}" title="Confirmer la suppression de l'utilisateur" id="admin_user-delete-modal-confirm">{{ 'core.admin.confirm'|trans }}</a>
+			        <button class="btn btn-danger" data-dismiss="modal">{{ 'core.admin.abort'|trans }}</button>
+			     </div>
+		    </div>
+	  	</div>
+	</div>
+{% endmacro %}

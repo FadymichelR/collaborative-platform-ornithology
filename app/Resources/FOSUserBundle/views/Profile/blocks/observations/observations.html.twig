@@ -1,0 +1,16 @@
+<div class="col-xs-12 profile-block-header">
+	{{ 'core.profile.block2.header'|trans|upper }}
+</div>
+ <div class="col-xs-12 profile-block-content" id="profile_block2-content">
+ 	<div class="row">    
+	  	{% include '@FOSUser/Profile/blocks/observations/observations.tabs.html.twig' %}
+
+	  	<div class="tab-content">
+	      	{% include '@FOSUser/Profile/blocks/observations/observations.tab-valid.html.twig' %}
+
+	      	{% include '@FOSUser/Profile/blocks/observations/observations.tab-waiting.html.twig' %}
+
+	      	{% include '@FOSUser/Profile/blocks/observations/observations.tab-refused.html.twig' %}
+	  	</div>
+	</div>
+</div>

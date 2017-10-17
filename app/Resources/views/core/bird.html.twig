@@ -1,0 +1,180 @@
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite, ?scssphp'
+        'bundles/app/css/fiche-bird.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+<div class="col-xs-12">
+	<p>
+		<a href="{{ path('find') }}" id="precedent" class="btn btn-default btn-lg">
+		  <span class="glyphicon glyphicon-arrow-left"></span>
+		</a>
+	</p> 
+<div class="row w3-margin-bottom">
+	<div class="col-xs-12 col-sm-6">
+		{% if observations[0].image.image is defined %}
+			<img src="{{ asset('%25kernel.project_dir%25/web/uploads/images/optimized/') }}{{ observations[0].image.image }}" alt="" class ="img-responsive"/>
+		{% else %}
+			<p>Aucune Image</p>
+		{% endif %}
+	</div>
+
+	<div class="col-xs-12 col-sm-6 nao_title-icon">
+		<h1>{{ bird.commonName }}</h1>
+		<p>
+			{{ 'core.bird.desc.family'|trans }} : {{ bird.family }} <br/>
+			{{ 'core.bird.desc.rang'|trans }} : {{ bird.rank }} <br/>
+			{{ 'core.bird.desc.name_latin'|trans }} : {{ bird.latinName }} <br/>
+			{{ 'core.bird.desc.full_name'|trans }} : {{ bird.fullName }} <br/>
+			{{ 'core.bird.desc.common_name'|trans }} : {{ bird.commonName }} <br/>
+		</p>
+	</div>
+</div>
+<div id="maps"></div>
+
+<div class="bird_title">
+<h1>{{ 'core.bird.observation.title'|trans }}</h1>
+</div>
+
+{% set imgs = [] %}
+
+{% if observations is not empty %}
+	{% set gps = [] %}
+	{% for ob in observations %}
+
+		{% if ob.status == true %}
+			{% set gps = gps|merge(['{lat:' ~ ob.longitude ~ ', lng: ' ~ ob.lattitude ~ ' },']) %}
+			{% if ob.image is not empty %}
+				{% set imgs = imgs|merge([ob.image.image]) %}
+			{% endif %}
+			<div class="observation">
+				<p>
+				{{ ob.user.firstName }} - <b>{{ ob.date|localizeddate('none', 'none', null, null, 'd MMMM Y') }}</b> - {{ ob.country }}<br />
+				{{ ob.comment }}
+				</p>
+				<hr class="hr_bird">
+			</div>
+		{% endif %}
+	{% endfor %}
+	<div class="text-center"> 
+		<button type="button" class="btn btn-primary btn-lg btn-standard" id="loadMore">En voir plus <img src="{{ asset('bundles/app/img/more.png') }}" width="50" /> </button>
+	</div>
+{% else %}
+	<p>Il n'éxiste aucune observations liées à cet oiseau</p>
+{% endif %}
+<div class="bird_title">
+<h1>{{ 'core.bird.photo.title'|trans }}</h1>
+</div>
+{% if imgs is not empty %}
+    	<div class="jcarousel-wrapper">
+                <div class="jcarousel">
+                    <ul>
+                    	{% for key, imageUrl in imgs %}
+                        <li><img src="{{ asset('%25kernel.project_dir%25/web/uploads/images/optimized/') }}{{ imageUrl }}" alt="Image {{ key }}"></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <a href="#" class="jcarousel-control-prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a href="#" class="jcarousel-control-next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+                <p class="jcarousel-pagination"></p>
+        </div>
+
+{% else %}
+	<p>Il n'éxiste aucune images liées à cet oiseau</p>
+{% endif %}
+</div>
+
+{% block javascripts %}
+
+    {% javascripts filter='?jsqueeze'
+        'bundles/app/js/jquery.jcarousel.min.js'
+        'bundles/app/js/jcarousel.responsive.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+ <script>
+ function initMap() {
+ 	var map = new google.maps.Map(document.getElementById('maps'), {
+	  center: {lat: 46.227638, lng: 2.213749000000007},
+	  zoom: 6,
+	  mapTypeId: google.maps.MapTypeId.TERRAIN
+	});
+
+	{% if observations is not empty %}
+	var zoneMarqueurs = new google.maps.LatLngBounds()
+	var tableauMarqueurs = [
+
+	{% for l_l in gps %}
+   		{{ l_l }}
+	{% endfor %}
+
+	];
+	for( var i = 0, I = tableauMarqueurs.length; i < I; i++ ) {
+
+		var latlng = tableauMarqueurs[i],							//	var latlng = tableauMarqueurs[i],
+			latitude = latlng["lat"],								//		latitude = latlng[0],
+			longitude = latlng["lng"];								//		longitude = latlng[1];
+	
+		var optionsMarqueur = {
+			map: map,
+			position: new google.maps.LatLng( latitude, longitude ),
+			animation: google.maps.Animation.DROP
+		};
+		var marqueur = new google.maps.Marker( optionsMarqueur );
+		zoneMarqueurs.extend( marqueur.getPosition() );
+
+  		var infowindow = new google.maps.InfoWindow()
+		google.maps.event.addListener(marqueur,'click', (function(marqueur,content,infowindow){ 
+		        return function() {
+		           infowindow.setContent(content);
+		           infowindow.open(map,marqueur);
+		        };
+		    })(marqueur,content,infowindow));
+
+	}
+	map.fitBounds( zoneMarqueurs );
+	{% endif %}
+}
+if (typeof google === 'object' && typeof google.maps === 'object') {
+	var map = new google.maps.Map(document.getElementById('maps'), {
+	  center: {lat: 46.227638, lng: 2.213749000000007},
+	  zoom: 6
+	});
+	$(document).ready(function() {
+	    $(window).resize(function() {
+	        google.maps.event.trigger(map, 'resize');
+	    });
+	    google.maps.event.trigger(map, 'resize');
+		initMap();
+	});
+ 
+}
+else {
+	jQuery.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBYM7ehj93A-AEdTDupTMEL7wAgOHWCTxA&callback=initMap");
+
+}
+$('#precedent').click(function(e){
+    e.preventDefault();
+    $('#container_fiche').empty();
+    $('#container_find,.nao_title').show('slow');
+    $('body').css({'background-image': 'url(http://assets.fhuszti.tech/nao/fiche-oiseau/fiche-bg.jpg)'});
+    return false;
+});
+
+$(function () {
+    $(".observation").slice(0, 3).show();
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $(".observation:hidden").slice(0, 3).slideDown();
+        if ($(".observation:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 1500);
+    });
+});
+</script>

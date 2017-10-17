@@ -1,0 +1,18 @@
+<div class="col-xs-12 profile-block-header">
+	{{ 'core.profile.block1.header'|trans|upper }}
+</div>
+<div class="profile-block-content" id="profile_block1-content">
+	<div class="row" id="profile_block1-content-title">
+		<h3>
+			{{ 'core.profile.block1.content.title'|trans|upper }}
+
+    		{% image 'http://assets.fhuszti.tech/nao/separator-angle.png' %}
+				<img src="{{ asset_url }}" alt="{{ 'core.site.alt_img'|trans }}" class="pull-right" />
+			{% endimage %}
+		</h3>
+	</div>
+
+	<div class="fos_user_user_show row" id="profile_block1-content-infos">
+    	{% include '@FOSUser/Profile/blocks/infos/infos.content.html.twig' %}
+	</div>
+</div>

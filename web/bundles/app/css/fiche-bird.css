@@ -1,0 +1,28 @@
+.bird_title {
+  margin-top:20px;
+  margin-bottom:20px;
+  padding: 10px 10px;
+  background-color: #87d37c;
+  color: #000;
+  border:0px;
+  width:90%;
+}
+.hr_bird{height:0;border:0;border-top:1px solid #ccc;margin:20px 0;width:90%;}
+
+ #maps {
+    width: 100%;
+    height: 500px;
+    background-color: grey;
+}
+.observation {
+    display:none;
+    font-family: 'Open sans semi bold';
+}
+ #container_fiche {
+ 	padding:30px;
+ }
+@media (max-width: 767px) {
+  #container_fiche {
+    padding: 5px;
+  }
+}

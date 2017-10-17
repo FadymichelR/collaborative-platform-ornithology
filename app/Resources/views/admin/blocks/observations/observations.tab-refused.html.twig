@@ -1,0 +1,7 @@
+<div class="tab-pane" id="refused">
+	{% for observation in observations|reverse if observation.status == false and observation.status is not null %}
+        {{ macroObservationDisplay.observation_display(observation, 'refused') }}
+    {% else %}
+        {% include 'admin/blocks/observations/observations.empty.html.twig' %}
+    {% endfor %}
+</div>
